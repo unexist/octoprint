@@ -11,7 +11,35 @@ profiles:
     x-api-key: "{{ env('API_KEY') }}"
 
 requests:
-  state:
+  states:
+    name: States
+    requests:
+      printer:
+        $ref: "#/.base_request"
+        method: GET
+        url: '{{ host }}/api/printer'
+
+      tool:
+        $ref: "#/.base_request"
+        method: GET
+        url: '{{ host }}/api/printer/tool'
+
+      bed:
+        $ref: "#/.base_request"
+        method: GET
+        url: '{{ host }}/api/printer/bed'
+
+      chamber:
+        $ref: "#/.base_request"
+        method: GET
+        url: '{{ host }}/api/printer/chamber'
+
+  job:
     $ref: "#/.base_request"
     method: GET
-    url: '{{ host }}/api/printer'
+    url: '{{ host }}/api/job'
+
+  user:
+    $ref: "#/.base_request"
+    method: GET
+    url: '{{ host }}/api/currentuser'
