@@ -11,4 +11,7 @@ custom_fields: {}
 
 # override variables
 variables:
-  trmnl: {}
+  trmnl:
+    name: Christoph Kappel
+  plugin_settings:
+    instance_name: OctoPrint
