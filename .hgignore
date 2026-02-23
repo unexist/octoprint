@@ -17,6 +17,5 @@ target/
 # Rust
 **/target/*
 
-# subtle
-build/*
-config.*
+# Misc
+slumber.sh
