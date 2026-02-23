@@ -1,16 +1,17 @@
 profiles:
   development:
+    name: null
     default: true
     data:
-      host: http://octopi.local/
+      host: http://octopi.local
 
 .base_request:
   headers:
     accept: application/json
-    X-Api-Key: "{{ env('API_KEY') }}"
+    x-api-key: "{{ env('API_KEY') }}"
 
 requests:
-  state: !request
+  state:
     $ref: "#/.base_request"
     method: GET
-    url: "{{ host }}/api/printer"
+    url: '{{ host }}/api/printer'
