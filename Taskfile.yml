@@ -1,0 +1,12 @@
+version: '3'
+
+tasks:
+  interactive:
+    cmds:
+      - |
+        podman run -it \
+          --publish 4567:4567 \
+          --volume "$HOME/.config/trmnlp:/root/.config/trmnlp" \
+          --volume "$(pwd):/plugin" \
+          --entrypoint /bin/bash \
+          docker.io/trmnl/trmnlp
