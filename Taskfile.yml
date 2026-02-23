@@ -4,9 +4,17 @@ tasks:
   interactive:
     cmds:
       - |
-        podman run -it \
+        podman run -it --rm --network=host \
           --publish 4567:4567 \
           --volume "$HOME/.config/trmnlp:/root/.config/trmnlp" \
           --volume "$(pwd):/plugin" \
           --entrypoint /bin/bash \
           docker.io/trmnl/trmnlp
+
+  serve:
+    cmds:
+      - |
+        podman run -it --rm --network=host \
+          --publish 4567:4567 \
+          --volume "$(pwd)/octoprint:/plugin" \
+          docker.io/trmnl/trmnlp serve
