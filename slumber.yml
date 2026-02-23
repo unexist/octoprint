@@ -1,0 +1,16 @@
+profiles:
+  development:
+    default: true
+    data:
+      host: http://octopi.local/
+
+.base_request:
+  headers:
+    accept: application/json
+    X-Api-Key: "{{ env('API_KEY') }}"
+
+requests:
+  state: !request
+    $ref: "#/.base_request"
+    method: GET
+    url: "{{ host }}/api/printer"
